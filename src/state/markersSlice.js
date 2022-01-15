@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { marker } from "leaflet";
 
 const initialState = {};
 
@@ -8,7 +7,6 @@ export const markersSlice = createSlice({
   initialState,
   reducers: {
     addInitMarkers: (state, action) => {
-      console.log({ state, marker: action.payload.markers });
       if (action.payload.markers) state.markers = action.payload.markers;
     },
   },

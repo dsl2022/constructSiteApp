@@ -1,23 +1,33 @@
 import { Marker, Popup } from "react-leaflet";
 import React, { useRef, useState, useCallback, useMemo } from "react";
 import L from "leaflet";
-const center = {
-  lat: 51.505,
-  lng: -0.09,
-};
-const centerCor = {
-  x: 0.527375201288245 * 1016,
-  y: 0.519297519875233 * 1590,
-};
-export default function DraggableMarker() {
+// const center = {
+//   lat: 51.505,
+//   lng: -0.09,
+// };
+
+export default function DraggableMarker({
+  rotatedValue,
+  height,
+  width,
+  x = 0,
+  y = 0,
+}) {
+  // x = 0.527375201288245 * 1016,
+  // y = 0.519297519875233 * 1590
+  const centerCor = {
+    x,
+    y,
+  };
+
   const icon = L.divIcon({
     iconSize: [20, 20],
     iconAnchor: [10, 10],
     className: "yourClassName",
     html: `<img 
-    style="transform: rotate(50deg);"
-    height="20" 
-    width="20" 
+    style="transform: rotate(${rotatedValue}deg);"
+    height="${height}" 
+    width="${width}" 
     src='https://app.structionsite.com/assets/marker_flat.png'>`,
   });
   const [draggable, setDraggable] = useState(false);

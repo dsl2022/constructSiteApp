@@ -1,42 +1,33 @@
-import React, { useRef, useEffect, useMemo } from "react";
-import { Map, Marker, Popup } from "react-leaflet";
+import React, { useRef, useEffect } from "react";
+import { Map } from "react-leaflet";
 import { useSelector, useDispatch } from "react-redux";
 import sampleData from "./sample_data.json";
 import { addInitMarkers, getMarkers } from "./state/markersSlice";
+import Markers from "./Markers/Markers";
 
 import { CRS } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./styles.css";
-import DraggableMarker from "./DraggableMarker";
+import DraggableMarker from "./Markers/DraggableMarker";
 
 export default () => {
   const mapRef = useRef(null);
   const markers = useSelector(getMarkers);
   const dispatch = useDispatch();
   console.log({ markers });
-  const icon = L.divIcon({
-    iconSize: [20, 20],
-    iconAnchor: [10, 10],
-    className: "yourClassName",
-    html: `<img 
-    style="transform: rotate(50deg);"
-    height="20" 
-    width="20" 
-    src='https://app.structionsite.com/assets/marker_flat.png'>`,
-  });
 
-  var pin = {
-    x: 0.527375201288245,
-    y: 0.519297519875233,
-    created_at: "2018-06-20 06:04:11 UTC",
-    updated_at: "2018-07-24 20:12:47 UTC",
-    img_preview:
-      "https://structionsite-code-challenge-assets.s3.us-east-2.amazonaws.com/preview.jpeg",
-  };
+  // var pin = {
+  //   x: 0.527375201288245,
+  //   y: 0.519297519875233,
+  //   created_at: "2018-06-20 06:04:11 UTC",
+  //   updated_at: "2018-07-24 20:12:47 UTC",
+  //   img_preview:
+  //     "https://structionsite-code-challenge-assets.s3.us-east-2.amazonaws.com/preview.jpeg",
+  // };
   useEffect(() => {
     dispatch(addInitMarkers(sampleData));
-  }, []);
+  });
   useEffect(() => {
     const map = mapRef.current.leafletElement;
     const bounds = [
@@ -49,7 +40,7 @@ export default () => {
     ).addTo(map);
 
     map.fitBounds(image.getBounds());
-  }, []);
+  });
 
   return (
     <>
@@ -73,6 +64,7 @@ export default () => {
           </Popup>
         </Marker> */}
         <DraggableMarker />
+        <Markers />
       </Map>
     </>
   );
