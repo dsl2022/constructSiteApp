@@ -5,9 +5,10 @@ export function GenerateMarkersArray(markerData) {
   console.log({ markerData });
 
   return markerData.map((marker) => {
-    const { x, y, rotation } = marker;
+    const { id, x, y, rotation } = marker;
     return (
       <DraggableMarker
+        key={id}
         height="20"
         width="20"
         x={x * 1016}
