@@ -8,6 +8,7 @@ import { CRS } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./styles.css";
+import DraggableMarker from "./DraggableMarker";
 
 export default () => {
   const mapRef = useRef(null);
@@ -61,7 +62,7 @@ export default () => {
         boundsOptions={{ padding: [50, 50] }}
         style={{ height: "100vh" }}
       >
-        <Marker
+        {/* <Marker
           data-key={"test remove"}
           draggable={true}
           icon={icon}
@@ -70,7 +71,8 @@ export default () => {
           <Popup>
             <img src={pin.img_preview} />
           </Popup>
-        </Marker>
+        </Marker> */}
+        <DraggableMarker />
       </Map>
     </>
   );
