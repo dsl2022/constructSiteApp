@@ -53,7 +53,7 @@ export default function DraggableMarker({
       icon={icon}
       draggable={draggable}
       eventHandlers={eventHandlers}
-      position={L.latLng([position.y, position.x])}
+      position={L.latLng([position.x, position.y])}
       ref={markerRef}
     >
       <Popup minWidth={90}>
@@ -62,6 +62,9 @@ export default function DraggableMarker({
             ? "Marker is draggable"
             : "Click here to make marker draggable"}
         </span>
+        <button>update</button>
+        <button>rotate</button>
+        <button>view photo</button>
       </Popup>
     </Marker>
   );
