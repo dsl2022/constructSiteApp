@@ -12,6 +12,7 @@ export default function DraggableMarker({
   width,
   x = 0,
   y = 0,
+  id,
 }) {
   // x = 0.527375201288245 * 1016,
   // y = 0.519297519875233 * 1590

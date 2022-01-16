@@ -9,6 +9,7 @@ export function GenerateMarkersArray(markerData) {
     return (
       <DraggableMarker
         key={id}
+        id={id}
         height="20"
         width="20"
         x={x * 1016}
