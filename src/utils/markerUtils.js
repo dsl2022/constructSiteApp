@@ -1,6 +1,7 @@
 import shortUuid from "short-uuid";
 
-export const updateMarkersHandler = ({ lat, lng }) => {
+export const generateMarkersHandler = ({ lat, lng }) => {
+  console.log("test position generate", { lat, lng });
   return {
     id: shortUuid.generate(),
     x: lat / 1016,
@@ -22,4 +23,8 @@ export const updateMarkersHandler = ({ lat, lng }) => {
     image_file_size: 1841240,
     image_updated_at: "2017-05-17 06:00:36 UTC",
   };
+};
+
+export const updateMarkerRotationById = ({ data, position, id }) => {
+  console.log("update rotation", { position, id, data });
 };
