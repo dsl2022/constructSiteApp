@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Map } from "react-leaflet";
 import { useSelector, useDispatch } from "react-redux";
 import sampleData from "./sample_data.json";
-import { updateMarkersHandler } from "./utils/markerUtils";
+import { generateMarkersHandler } from "./utils/markerUtils";
 import {
   addInitMarkers,
   getMarkers,
@@ -28,7 +28,7 @@ export default () => {
     // use e.latlng to generate new marker data
     // concat new data to existing markers.
     // dispatch to redux
-    const newData = updateMarkersHandler(e.latlng);
+    const newData = generateMarkersHandler(e.latlng);
     const updatedData = markers.markers.concat(newData);
     dispatch(updateMarkers(updatedData));
   };
