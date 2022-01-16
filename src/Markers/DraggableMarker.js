@@ -52,7 +52,7 @@ export default function DraggableMarker({
   return (
     <Marker
       icon={icon}
-      draggable={draggable}
+      draggable={true}
       eventHandlers={eventHandlers}
       position={L.latLng([position.x, position.y])}
       ref={markerRef}
